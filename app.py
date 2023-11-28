@@ -31,4 +31,15 @@ def start():
     get = render.template(whatever the home page is called)
     """
 
+@app.route("/game_board", methods=["GET", "POST"])
+def game_board():
+    """
+    post = player clicks on one of the locations
+        flash the location (so that the next page can use it as input)
+        redirect to page where player inputs their guess
+
+    get = render.template(the main game board page)
+    """
+
+@app.route("reveal)
 
