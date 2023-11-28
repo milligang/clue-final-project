@@ -36,10 +36,18 @@ def game_board():
     """
     post = player clicks on one of the locations
         flash the location (so that the next page can use it as input)
-        redirect to page where player inputs their guess
+        redirect(page where player inputs their guess)
 
     get = render.template(the main game board page)
     """
 
-@app.route("reveal)
+@app.route("reveal_cards", methods=["GET", "POST"])
+def reveal_cards():
+    """
+    post = player selects card from the dropdown and clicks submit
+        card = request.form.get(the item selected from the dropdown)
+        redirect(page that tells first player the card, take card as input)
+
+    get = render.template(the page where the player chooses which card to show)
+    """
 
