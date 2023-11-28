@@ -25,7 +25,8 @@ def start():
     post = both players press start when ready
         generate cards for the players
             assign user id to each card
-            assign id to winning card
-            
+            assign id to winning card set
+        redirect to game board 
+
     get = render.template(whatever the home page is called)
     """
