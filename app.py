@@ -19,5 +19,13 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-@app.route("/buy", methods=["GET", "POST"])
-def buy():
+@app.route("/start", methods=["GET", "POST"])
+def start():
+    """
+    post = both players press start when ready
+        generate cards for the players
+            assign user id to each card
+            assign id to winning card
+            
+    get = render.template(whatever the home page is called)
+    """
