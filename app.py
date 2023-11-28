@@ -41,6 +41,14 @@ def game_board():
     get = render.template(the main game board page)
     """
 
+@app.route("/guess", methods=["GET", "POST"])
+def guess():
+    """
+    post =
+
+    get = render.template(the page where the player can select the suspect, room, and weapon)
+    """
+
 @app.route("reveal_cards", methods=["GET", "POST"])
 def reveal_cards():
     """
