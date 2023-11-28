@@ -20,5 +20,4 @@ def after_request(response):
     return response
 
 @app.route("/buy", methods=["GET", "POST"])
-@login_required
 def buy():
