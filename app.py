@@ -9,7 +9,7 @@ app = Flask(__name__)
 # TODO - do we want cookies or no?
 
 # Configure CS50 Library to use SQLite database
-# TODO
+# TODO - need to make the .db first
 
 @app.after_request
 def after_request(response):
