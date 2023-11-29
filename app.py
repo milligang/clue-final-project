@@ -58,4 +58,5 @@ def reveal_cards():
 
     get = render.template(the page where the player chooses which card to show)
     """
-
+@app.route("game_over", methods=["GET", "POST"])
+def game_over():
