@@ -11,7 +11,7 @@ app = Flask(__name__)
 # Configure CS50 Library to use SQLite database
 # TODO - need to make the .db first
 
-#TODO: create sql tables, one for the cards
+#TODO: create sql tables
 
 @app.after_request
 def after_request(response):
