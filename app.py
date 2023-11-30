@@ -11,7 +11,7 @@ app = Flask(__name__)
 # Configure CS50 Library to use SQLite database
 # TODO - need to make the .db first
 
-#TODO: create sql tables, one for each set of cards
+#TODO: create sql tables, one for the cards
 
 @app.after_request
 def after_request(response):
@@ -59,4 +59,11 @@ def reveal_cards():
         redirect(page that tells first player the card, take card as input)
 
     get = render.template(the page where the player chooses which card to show)
+    """
+
+@app.route("show_cards")
+def show_cards():
+    """
+    cards = select * from cards where player_id = ?, current_player
+    render.template(page of player's cards, cards = cards)
     """
