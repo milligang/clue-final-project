@@ -6,7 +6,9 @@ from flask_session import Session
 app = Flask(__name__)
 
 # Configure session to use filesystem (instead of signed cookies)
-# TODO - do we want cookies or no?
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 # Configure CS50 Library to use SQLite database
 # TODO - need to make the .db first
