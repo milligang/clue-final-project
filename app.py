@@ -11,7 +11,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-# TODO - need to make the .db first
+db = SQL("sqlite:///clue.db")
 
 #TODO: create sql tables
 
