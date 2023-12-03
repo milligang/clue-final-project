@@ -23,9 +23,12 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def start():
-    return render_template("homepage.html")
+    if reqeust.method == "POST":
+        return render_template("mycards.html")
+    else:
+        return render_template("homepage.html")
     '''both players press start when ready
             generate cards for the players
                 assign user id to each card
