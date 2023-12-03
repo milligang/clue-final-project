@@ -25,7 +25,7 @@ def after_request(response):
 
 @app.route("/", methods=["GET", "POST"])
 def start():
-    if reqeust.method == "POST":
+    if request.method == "POST":
         return render_template("mycards.html")
     else:
         return render_template("homepage.html")
