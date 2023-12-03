@@ -23,18 +23,14 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-@app.route("/start", methods=["GET", "POST"])
+@app.route("/")
 def start():
-    if request.method == "POST":
-        return render_template("homepage.html")
+    return render_template("homepage.html")
     '''both players press start when ready
-        generate cards for the players
-            assign user id to each card
-            assign id to winning card set
-        redirect to game board'''
-
-    else:
-        return render_template("homepage.html")
+            generate cards for the players
+                assign user id to each card
+                assign id to winning card set
+            redirect to game board'''
 
 @app.route("/game_board", methods=["GET", "POST"])
 def game_board():
