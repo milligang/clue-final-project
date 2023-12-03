@@ -77,8 +77,8 @@ def reveal_cards():
     get = render.template(the page where the player chooses which card to show)
     """
 
-@app.route("/show_cards")
-def show_cards():
+@app.route("/my_cards")
+def my_cards():
     if request.method == "POST":
         return render_template("homepage.html")
     else:
@@ -98,3 +98,8 @@ def all_cards():
     cards = select * from cards where player_id = ?, current_player
     render.template(page of player's cards, cards = cards)
     """
+
+@app.route("/final_guess")
+def final_guess():
+    if request.method == "POST":
+        return render_template(")
