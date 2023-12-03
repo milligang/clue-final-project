@@ -102,4 +102,6 @@ def all_cards():
 @app.route("/final_guess")
 def final_guess():
     if request.method == "POST":
-        return render_template(")
+        return render_template("homepage.html")
+    else:
+        return render_template("harvard.html")
