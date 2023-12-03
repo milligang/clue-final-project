@@ -87,3 +87,14 @@ def show_cards():
     cards = select * from cards where player_id = ?, current_player
     render.template(page of player's cards, cards = cards)
     """
+
+@app.route("/all_cards")
+def all_cards():
+    if request.method == "POST":
+        return render_template("homepage.html")
+    else:
+        return render_template("allcards.html")
+    """
+    cards = select * from cards where player_id = ?, current_player
+    render.template(page of player's cards, cards = cards)
+    """
