@@ -66,11 +66,6 @@ def guess():
         return render_template("homepage.html")
     else:
         return render_template("guess.html")
-    """
-    post =
-
-    get = render.template(the page where the player can select the suspect, room, and weapon)
-    """
 
 @app.route("/revealcards", methods=["GET", "POST"])
 def revealcards():
