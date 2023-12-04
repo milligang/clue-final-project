@@ -98,10 +98,6 @@ def allcards():
         return render_template("homepage.html")
     else:
         return render_template("allcards.html")
-    """
-    cards = select * from cards where player_id = ?, current_player
-    render.template(page of player's cards, cards = cards)
-    """
 
 @app.route("/finalguess")
 def finalguess():
