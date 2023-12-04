@@ -50,6 +50,9 @@ def start():
             ORDER BY RAND ( )
             LIMIT 1
             '''
+    '''
+    UPDATE cards SET
+    '''
 
 @app.route("/gameboard2", methods=["GET", "POST"])
 def gameboard2():
