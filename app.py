@@ -61,6 +61,13 @@ def gameboard():
     else:
         return render_template("gameboard.html")
 
+@app.route("/gameboard2", methods=["GET", "POST"])
+def gameboard2():
+    if request.method == "POST":
+        return render_template("homepage.html")
+    else:
+        return render_template("gameboard2.html")
+
 @app.route("/guess", methods=["GET", "POST"])
 def guess():
     if request.method == "POST":
