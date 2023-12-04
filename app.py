@@ -58,7 +58,7 @@ def gameboard2():
         room = request.form.get("room")
         # error if the user does not a room, redirect user to gameboard to select a room
         if not room:
-            return render_template("gameboard.html")
+            return render_template("gameboard2.html")
         # if the location is harvard hall, the user is submitting their final guess to end the game
         elif room == "Harvard Hall":
             return render_template("harvard.html")
