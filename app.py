@@ -39,8 +39,17 @@ def start():
 def game_board():
     if request.method == "POST":
         room = request.form.get("room")
-        flash(room)
-        return render_template("homepage.html")
+        # error if the user does not a room, redirect user to gameboard to select a room
+        if not room:
+            render_template("gameboard.html")
+        # if the location is harvard hall, the user is submitting their final guess to end the game
+        elif room == "Harvard Hall":
+            render_template("harvard.html")
+        # else, this is a typical turn and so proceed to page where the user can enter their guess
+        else:
+            flash(room)
+            render_template("guess.html")
+
     else:
         return render_template("gameboard.html")
     """
