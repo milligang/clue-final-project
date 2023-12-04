@@ -51,7 +51,9 @@ def start():
             LIMIT 1
             '''
     '''
-    UPDATE cards SET player_id WHERE id
+    UPDATE cards SET player_id = NULL
+    UPDATE cards SET player_id = 0 WHERE id IN (SELECT id FROM cards ORDER BY RAND() LIMIT 3)
+    UPDATE cards SET
     '''
 
 @app.route("/gameboard2", methods=["GET", "POST"])
