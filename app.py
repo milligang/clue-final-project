@@ -18,11 +18,10 @@ db = SQL("sqlite:///clue.db")
 # potential rows: player_id (unique), type, name
 """
 CREATE TABLE cards (
-    id INTEGER NOT NULL
+    (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     player_id INTEGER,
-    type 
-    name
-    PRIMARY KEY(id)
+    type TEXT,
+    name TEXT,
 );
 type it here
 """
