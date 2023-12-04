@@ -39,6 +39,7 @@ def start():
 def game_board():
     if request.method == "POST":
         room = request.form.get("room")
+        flash(room)
         return render_template("homepage.html")
     else:
         return render_template("gameboard.html")
