@@ -7,7 +7,16 @@
     <body>
         <form action="/guess" method="post">
             <p>guess page</p>
-            <p>{{ get_flashed_messages() | join(" ")}}</p>
+            <p>Location: {{ get_flashed_messages() | join(" ")}}</p>
+            <select class="form-select mx-auto w-auto" id="weapon" name="weapon">
+                <option disabled selected>Select a weapon</option>
+                <option value = "weapon">weapon- eventually, use a for-loop to go through all the player's weapon cards</option>
+            </select>
+            <select class="form-select mx-auto w-auto" id="person" name="person">
+                <option disabled selected>Select a suspect</option>
+                <option value = "suspect">suspects- eventually, use a for-loop to go through all the player's people cards</option>
+            </select>
+            <button name="submit" type="submit">Submit</button>
         </form>
     </body>
 </html>
