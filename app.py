@@ -16,6 +16,17 @@ db = SQL("sqlite:///clue.db")
 #TODO: create sql tables
 # create table cards (...)
 # potential rows: player_id (unique), type, name
+""""
+CREATE TABLE cards (
+    id INTEGER,
+    places TEXT,
+    people TEXT,
+    weapons TEXT,
+    t_license_plate TEXT,
+    FOREIGN KEY(id) REFERENCES people(id)
+);
+type it here
+""""
 
 @app.after_request
 def after_request(response):
