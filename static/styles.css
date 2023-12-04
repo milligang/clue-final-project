@@ -36,4 +36,9 @@
     position: absolute;
 }
 
+.table {
+    table-layout: auto;
+    width: 200px;
+}
+
 
