@@ -23,7 +23,6 @@ CREATE TABLE cards (
     type TEXT NOT NULL,
     name TEXT NOT NULL,
 );
-type it here
 """
 
 @app.after_request
