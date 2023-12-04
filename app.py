@@ -56,7 +56,14 @@ def gameboard():
 @app.route("/guess", methods=["GET", "POST"])
 def guess():
     if request.method == "POST":
-        return render_template("homepage.html")
+        weapon = request.form.get("weapon")
+        person = request.form.get("person")
+        # error if the player does not select a weapon and a person
+        if not weapon or not person:
+            #TODO (probs don't actually want to go back to the homepage)
+            return render_template("homepage.html")
+
+        return render_template("gameboard.html")
     else:
         return render_template("guess.html")
     """
