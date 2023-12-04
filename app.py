@@ -51,7 +51,7 @@ def start():
             LIMIT 1
             '''
     '''
-    UPDATE cards SET
+    UPDATE cards SET player_id WHERE id
     '''
 
 @app.route("/gameboard2", methods=["GET", "POST"])
