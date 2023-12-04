@@ -6,15 +6,18 @@
     </head>
     <body>
         <form action="/revealcards" method="post">
-            <p>guess page</p>
-            <p>Location: {{ get_flashed_messages() | join(" ")}}</p>
+            <p>reveal page</p>
             <select class="form-select mx-auto w-auto" id="weapon" name="weapon">
                 <option disabled selected>Select a weapon</option>
-                <option value="weapon1">weapon- eventually, use a for-loop to go through all the player's weapon cards</option>
+                <option value="weapon1">weapon</option>
             </select>
             <select class="form-select mx-auto w-auto" id="person" name="person">
                 <option disabled selected>Select a suspect</option>
-                <option value="person1">people- eventually, use a for-loop to go through all the player's people cards</option>
+                <option value="person1">people</option>
+            </select>
+            <select class="form-select mx-auto w-auto" id="person" name="person">
+                <option disabled selected>Select a location</option>
+                <option value="room1">room</option>
             </select>
             <button name="submit" type="submit">Submit</button>
         </form>
