@@ -13,6 +13,9 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///clue.db")
 
+N = 2 # the number of players
+C = 15 # the number of cards
+
 #TODO: create sql tables
 # create table cards (...)
 # potential rows: player_id (unique), type, name
@@ -53,9 +56,10 @@ def start():
     '''
     UPDATE cards SET player_id = NULL
     UPDATE cards SET player_id = 0 WHERE id IN (SELECT id FROM cards ORDER BY RAND() LIMIT 3)
-
+    for i in range(N)
     db.execute(UPDATE cards SET player_id = ? WHERE id IN (SELECT id FROM cards ORDER BY RAND() LIMIT ? WHERE player_id = NULL),
     i,
+    (C - 3)/N
     )
     '''
 
