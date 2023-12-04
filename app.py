@@ -33,7 +33,13 @@ def start():
             generate cards for the players
                 assign user id to each card
                 assign id to winning card set
-            redirect to game board'''
+            redirect to game board
+
+            for random column:
+            SELECT column FROM table
+            ORDER BY RAND ( )
+            LIMIT 1
+            '''
 
 @app.route("/gameboard", methods=["GET", "POST"])
 def gameboard():
