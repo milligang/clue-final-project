@@ -18,7 +18,7 @@ db = SQL("sqlite:///clue.db")
 # potential rows: player_id (unique), type, name
 """
 CREATE TABLE cards (
-    (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     player_id INTEGER,
     type TEXT,
     name TEXT,
@@ -52,8 +52,8 @@ def start():
             LIMIT 1
             '''
 
-@app.route("/gameboard", methods=["GET", "POST"])
-def gameboard():
+@app.route("/gameboard2", methods=["GET", "POST"])
+def gameboard2():
     if request.method == "POST":
         room = request.form.get("room")
         # error if the user does not a room, redirect user to gameboard to select a room
@@ -67,13 +67,6 @@ def gameboard():
             flash(room)
             return render_template("guess.html")
 
-    else:
-        return render_template("gameboard.html")
-
-@app.route("/gameboard2", methods=["GET", "POST"])
-def gameboard2():
-    if request.method == "POST":
-        return render_template("homepage.html")
     else:
         return render_template("gameboard2.html")
 
