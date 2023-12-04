@@ -1,47 +1,3 @@
-.grid-container {
-display: grid;
-grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
-grid-gap: 10px;
-background-color: rgba(150, 0, 0, 0.8);
-padding: 10px;
-}
-
-.grid-container > div {
-background-color: rgba(255, 255, 255, 0.8);
-text-align: center;
-padding: 20px 0;
-font-size: 30px;
-}
-.GSAS {
-grid-area: 1 / 1 / span 3 / span 3;
-text-align: center;
-}
-
-.Widener {
-grid-area: 1 / 6 / span 2 / span 5;
-text-align: center;
-}
-
-.Mass {
-grid-area: 5 / 1 / span 3 / span 2;
-text-align: center;
-}
-
-.Harvard {
-grid-area: 5 / 4 / span 3 / span 3;
-text-align: center;
-}
-
-.Mem {
-grid-area: 5 / 9 / span 4 / span 2;
-text-align: center;
-}
-
-.Canaday {
-grid-area: 10 / 2 / span 2 / span 7;
-text-align: center;
-}
-
 .header{
 color: rgba(150, 0, 0, 0.8);
 font-size: 40px;
@@ -54,59 +10,16 @@ background-color:  rgba(150, 0, 0, 0.8);
 padding: 10px;
 }
 
-.square {
-background-color: rgba(255, 255, 255, 0.8);
-border: 1px solid rgba(0, 0, 0, 0.8);
-padding: 20px;
-font-size: 20px;
-text-align: center;
-}
 
-.cana {
-background-color: rgba(128, 70, 27, 0.8);
-border: 0px solid rgba(0, 0, 0, 0.8);
-padding: 20px;
-}
-
-.mass {
-background-color: rgba(114, 47, 55, 0.8);
-border: 0px solid rgba(0, 0, 0, 0.8);
-padding: 20px;
-}
-
-.gsas {
-background-color: rgba(169, 92, 104, 0.8);
-border: 0px solid rgba(0, 0, 0, 0.8);
-padding: 20px;
-}
-
-.mem {
-background-color: rgba(194, 178, 128, 0.8);
-border: 0px solid rgba(0, 0, 0, 0.8);
-padding: 20px;
-}
-
-
-.wide {
-background-color: rgba(100, 4, 4, 0.8);
-border: 0px solid rgba(0, 0, 0, 0.8);
-padding: 20px;
-}
-
-.pool {
-background-color: rgba(128, 128, 0, 0.8);
-border: 0px solid rgba(0, 0, 0, 0.8);
-padding: 20px;
-}
 .text{
-color: rgba(150, 0, 0, 0.8);
-font-size: 20px;
-text-align: center;
+    color: rgba(150, 0, 0, 0.8);
+    font-size: 20px;
+    text-align: center;
 }
 .body{
-color: rgba(150, 0, 0, 0.8);
-font-size: 20px;
-text-align: center;
+    color: rgba(150, 0, 0, 0.8);
+    font-size: 20px;
+    text-align: center;
 }
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -120,11 +33,7 @@ text-align: center;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.grid-container {
-display: grid;
-grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
-grid-gap: 10px;
-background-color: rgba(150, 0, 0, 0.8);
-padding: 10px;
+.container {
+    position: relative;
 }
 
