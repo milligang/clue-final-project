@@ -38,7 +38,6 @@ def start():
 @app.route("/gameboard", methods=["GET", "POST"])
 def gameboard():
     if request.method == "POST":
-        print("posting")
         room = request.form.get("room")
         # error if the user does not a room, redirect user to gameboard to select a room
         if not room:
@@ -52,7 +51,6 @@ def gameboard():
             render_template("guess.html")
 
     else:
-        print("get")
         return render_template("gameboard.html")
 
 @app.route("/guess", methods=["GET", "POST"])
