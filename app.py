@@ -18,8 +18,6 @@ C = 15 # the number of cards
 current_player = 1
 
 #TODO: create sql tables
-# create table cards (...)
-# potential rows: player_id (unique), type, name
 """
 CREATE TABLE cards (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -43,17 +41,6 @@ def start():
         return render_template("mycards.html")
     else:
         return render_template("homepage.html")
-    '''both players press start when ready
-            generate cards for the players
-                assign user id to each card
-                assign id to winning card set
-            redirect to game board
-
-            for random column:
-            SELECT column FROM table
-            ORDER BY RAND ( )
-            LIMIT 1
-            '''
     '''
     UPDATE cards SET player_id = NULL
     UPDATE cards SET player_id = 0 WHERE id IN (SELECT id FROM cards ORDER BY RAND() LIMIT 3)
@@ -127,7 +114,7 @@ def mycards():
 @app.route("/allcards")
 def allcards():
     if request.method == "POST":
-        return render_template("homepage.html")
+        return render_template("mycards.html")
     else:
         return render_template("allcards.html")
 
