@@ -1,5 +1,5 @@
 from cs50 import SQL
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_session import Session
 
 # Configure application
@@ -35,8 +35,8 @@ def start():
                 assign id to winning card set
             redirect to game board'''
 
-@app.route("/game_board", methods=["GET", "POST"])
-def game_board():
+@app.route("/gameboard", methods=["GET", "POST"])
+def gameboard():
     if request.method == "POST":
         room = request.form.get("room")
         # error if the user does not a room, redirect user to gameboard to select a room
@@ -52,14 +52,6 @@ def game_board():
 
     else:
         return render_template("gameboard.html")
-    """
-    post = player clicks on one of the locations
-        flash the location (so that the next page can use it as input)
-        redirect(page where player inputs their guess)
-
-    else:
-        return render_template("game_board.html")
-    """
 
 @app.route("/guess", methods=["GET", "POST"])
 def guess():
@@ -73,8 +65,8 @@ def guess():
     get = render.template(the page where the player can select the suspect, room, and weapon)
     """
 
-@app.route("/reveal_cards", methods=["GET", "POST"])
-def reveal_cards():
+@app.route("/revealcards", methods=["GET", "POST"])
+def revealcards():
     if request.method == "POST":
         return render_template("homepage.html")
     else:
@@ -87,8 +79,8 @@ def reveal_cards():
     get = render.template(the page where the player chooses which card to show)
     """
 
-@app.route("/my_cards")
-def my_cards():
+@app.route("/mycards")
+def mycards():
     if request.method == "POST":
         return render_template("homepage.html")
     else:
@@ -98,8 +90,8 @@ def my_cards():
     render.template(page of player's cards, cards = cards)
     """
 
-@app.route("/all_cards")
-def all_cards():
+@app.route("/allcards")
+def allcards():
     if request.method == "POST":
         return render_template("homepage.html")
     else:
@@ -109,8 +101,8 @@ def all_cards():
     render.template(page of player's cards, cards = cards)
     """
 
-@app.route("/final_guess")
-def final_guess():
+@app.route("/finalguess")
+def finalguess():
     if request.method == "POST":
         return render_template("homepage.html")
     else:
