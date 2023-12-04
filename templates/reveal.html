@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link href="/static/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <form action="/revealcards" method="post">
+            <p>guess page</p>
+            <p>Location: {{ get_flashed_messages() | join(" ")}}</p>
+            <select class="form-select mx-auto w-auto" id="weapon" name="weapon">
+                <option disabled selected>Select a weapon</option>
+                <option value="weapon1">weapon- eventually, use a for-loop to go through all the player's weapon cards</option>
+            </select>
+            <select class="form-select mx-auto w-auto" id="person" name="person">
+                <option disabled selected>Select a suspect</option>
+                <option value="person1">people- eventually, use a for-loop to go through all the player's people cards</option>
+            </select>
+            <button name="submit" type="submit">Submit</button>
+        </form>
+    </body>
+</html>
+

@@ -96,23 +96,27 @@ def guess():
         current_player += 1
         if current_player > N:
             current_player = 1
-        return render_template("homepage.html")
+        return render_template("revealcards.html")
     else:
         return render_template("guess.html")
 
 @app.route("/revealcards", methods=["GET", "POST"])
 def revealcards():
     if request.method == "POST":
-        return render_template("homepage.html")
-    else:
-        return render_template("homepage.html")
-    """
-    post = player selects card from the dropdown and clicks submit
-        card = request.form.get(the item selected from the dropdown)
-        redirect(page that tells first player the card, take card as input)
+        card = request.form.get("card")
+        if not card:
+            # TODO: error if the user did not select a card to reveal
+            return render_template("homepage.html")
+        # go back to the previous player to reveal the card
+        if current_player is 1:
+            current_player = N
+        else:
+            current_player -= 1
 
-    get = render.template(the page where the player chooses which card to show)
-    """
+        # TODO: need to tell the original player the card that was selected
+        return render_template("mycards.html")
+    else:
+        return render_template("revealcards.html")
 
 @app.route("/mycards")
 def mycards():
