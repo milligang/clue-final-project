@@ -63,7 +63,7 @@ def guess():
             #TODO (probs don't actually want to go back to the homepage)
             return render_template("homepage.html")
 
-        return render_template("gameboard.html")
+        return render_template("guess.html")
     else:
         return render_template("guess.html")
     """
