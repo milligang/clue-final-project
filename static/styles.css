@@ -3,24 +3,19 @@ color: rgba(150, 0, 0, 0.8);
 font-size: 40px;
 text-align: center;
 }
-.gameboard {
-display: grid;
-grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-background-color:  rgba(150, 0, 0, 0.8);
-padding: 10px;
-}
-
 
 .text{
     color: rgba(150, 0, 0, 0.8);
     font-size: 20px;
     text-align: center;
 }
+
 .body{
     color: rgba(150, 0, 0, 0.8);
     font-size: 20px;
     text-align: center;
 }
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -36,4 +31,6 @@ padding: 10px;
 .container {
     position: relative;
 }
+
+
 
