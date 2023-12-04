@@ -7,7 +7,7 @@
     <body>
         <form action="/guess" method="post">
             <p>guess page</p>
-            <p>{{ get_flashed_messages()}}</p>
+            <p>{{ get_flashed_messages() | join(" ")}}</p>
         </form>
     </body>
 </html>
