@@ -92,10 +92,10 @@ def guess():
             #TODO (probs don't actually want to go back to the gameboard)
             return render_template("gameboard.html")
 
+        # go to the next player so they can select which card to reveal
         current_player += 1
         if current_player > N:
             current_player = 1
-
         return render_template("homepage.html")
     else:
         return render_template("guess.html")
