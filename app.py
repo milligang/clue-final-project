@@ -38,6 +38,7 @@ def start():
 @app.route("/game_board", methods=["GET", "POST"])
 def game_board():
     if request.method == "POST":
+        room = request.form.get("room")
         return render_template("homepage.html")
     else:
         return render_template("gameboard.html")
