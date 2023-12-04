@@ -14,6 +14,7 @@ Session(app)
 db = SQL("sqlite:///clue.db")
 
 #TODO: create sql tables
+# CREATE TABLE
 
 @app.after_request
 def after_request(response):
