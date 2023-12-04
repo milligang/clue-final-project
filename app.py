@@ -14,7 +14,8 @@ Session(app)
 db = SQL("sqlite:///clue.db")
 
 #TODO: create sql tables
-# CREATE TABLE
+# create table cards (...)
+# potential rows: player_id (unique), type, name
 
 @app.after_request
 def after_request(response):
