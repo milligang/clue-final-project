@@ -20,8 +20,8 @@ db = SQL("sqlite:///clue.db")
 CREATE TABLE cards (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     player_id INTEGER,
-    type TEXT,
-    name TEXT,
+    type TEXT NOT NULL,
+    name TEXT NOT NULL,
 );
 type it here
 """
