@@ -107,11 +107,6 @@ def revealcards():
         if not card:
             # TODO: error if the user did not select a card to reveal
             return render_template("homepage.html")
-        # go back to the previous player to reveal the card
-        if current_player is 1:
-            current_player = N
-        else:
-            current_player -= 1
 
         # TODO: need to tell the original player the card that was selected
         return render_template("mycards.html")
