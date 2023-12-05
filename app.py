@@ -118,9 +118,7 @@ def allcards():
     if request.method == "POST":
         return render_template("mycards.html")
     else:
-        types = db.execute("SELECT DISTINCT type FROM cards")
-        cards = db.execute("SELECT * FROM cards")
-        return render_template("allcards.html", cards = cards, types = types)
+        return render_template("allcards.html", cards = db.execute("SELECT * FROM cards"))
 
 @app.route("/finalguess")
 def finalguess():
