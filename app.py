@@ -15,7 +15,6 @@ db = SQL("sqlite:///clue.db")
 
 N = 2 # the number of players
 C = 15 # the number of cards
-current_player = 1
 
 # Notes from creating sql table
 """
@@ -81,9 +80,11 @@ def guess():
             return render_template("gameboard.html")
 
         # go to the next player so they can select which card to reveal
+        """
         current_player += 1
         if current_player > N:
             current_player = 1
+        """
         return render_template("revealcards.html")
     else:
         return render_template("guess.html")
