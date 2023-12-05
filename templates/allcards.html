@@ -9,6 +9,11 @@
             <table class="table">
                 <tr>
                     {% for card in cards %}
+                        <td class="card">
+                            <h2>{{ card['type'] }}</h2>
+                            <img src="{{ card['path'] }}" alt="{{ card['name'] }}">
+                            <h4>{{ card['name'] }}</h4>
+                        </td>
                     {% endfor %}
                 </tr>
 
