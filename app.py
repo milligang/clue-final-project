@@ -26,6 +26,7 @@ CREATE TABLE cards (
     name TEXT NOT NULL,
     path VARCHAR(255)
 );
+UPDATE cards 
 """
 
 @app.after_request
