@@ -26,13 +26,6 @@ CREATE TABLE cards (
     name TEXT NOT NULL,
     path VARCHAR(255)
 );
-INSERT INTO cards (type, name, path)
-VALUES
-('Weapon', 'Lead Pipe', '/static/lead_pipe.jpeg'),
-('Weapon', 'Rope', '/static/rope.png'),
-('Weapon', 'Trophy', '/static/trophy.png'),
-('Weapon', 'Knife', '/static/kife.webp'),
-('Weapon', 'Candlestick', '/static/candle.jpeg'),
 """
 
 @app.after_request
