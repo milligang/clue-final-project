@@ -116,7 +116,7 @@ def allcards():
     if request.method == "POST":
         return render_template("mycards.html")
     else:
-        return render_template("allcards.html")
+        return render_template("allcards.html", test=db.execute("SELECT * FROM test"))
 
 @app.route("/finalguess")
 def finalguess():
