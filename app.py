@@ -87,10 +87,10 @@ def guess():
                          current_player,
                          weapon,
                          person,
+                         room
                          )
 
-
-        return render_template("revealcards.html")
+        return render_template("revealcards.html", player_cards = player_cards)
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon' AND player_id = ?",
                              current_player)
