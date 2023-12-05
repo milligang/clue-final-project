@@ -17,13 +17,14 @@ N = 2 # the number of players
 C = 15 # the number of cards
 current_player = 1
 
-#TODO: create sql tables
+# Notes from creating sql table
 """
 CREATE TABLE cards (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     player_id INTEGER,
     type TEXT NOT NULL,
     name TEXT NOT NULL,
+    path VARCHAR(255)
 );
 """
 
@@ -116,7 +117,7 @@ def allcards():
     if request.method == "POST":
         return render_template("mycards.html")
     else:
-        return render_template("allcards.html", test=db.execute("SELECT * FROM test"))
+        return render_template("allcards.html")
 
 @app.route("/finalguess")
 def finalguess():
