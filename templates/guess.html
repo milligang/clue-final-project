@@ -6,7 +6,6 @@
     </head>
     <body>
         <form action="/guess" method="post">
-            <p>guess page</p>
             <p class="header" name="place">{{ get_flashed_messages() | join(" ")}}</p>
             <select class="text" id="weapon" name="weapon">
                 <option disabled selected>Select a weapon</option>
