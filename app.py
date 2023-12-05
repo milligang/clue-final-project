@@ -114,9 +114,7 @@ def revealcards():
 
 @app.route("/mycards")
 def mycards():
-    cards = db.execute("SELECT * FROM cards WHERE player_id = ?",
-                        current_player)
-    return render_template("mycards.html", cards = cards)
+    return render_template("mycards.html", cards = db.execute("SELECT * FROM cards"), current_player = current_player)
 
 @app.route("/allcards")
 def allcards():
