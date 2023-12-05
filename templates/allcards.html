@@ -7,6 +7,7 @@
     <body>
         <form action="/allcards" method="post">
             <table class="table">
+                {% for i in range 3 %}
                 <tr>
                     {% for card in cards %}
                         <td class="card">
