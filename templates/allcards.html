@@ -7,13 +7,13 @@
     <body>
         <form action="/allcards" method="post">
             <table class="table">
-                {% for i in range(1,4) %}
+                {% for i in range(3) %}
                 <tr>
-                    {% for j in range(1,6)%}
+                    {% for j in range(5)%}
                         <td class="card">
-                            <h2>{{ cards[i*j-1]['type'] }}</h2>
-                            <img src="{{ cards[i*j-1]['path'] }}" alt="{{ cards[i*j-1]['name'] }}">
-                            <h4>{{ cards[i*j-1]['name'] }}</h4>
+                            <h2>{{ cards[5*j + i]['type'] }}</h2>
+                            <img src="{{ cards[5*j + i]['path'] }}" alt="{{ cards[5*j + i]['name'] }}">
+                            <h4>{{ cards[5*j + i]['name'] }}</h4>
                         </td>
                     {% endfor %}
                 </tr>
