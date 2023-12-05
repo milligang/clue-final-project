@@ -70,8 +70,11 @@ def gameboard2():
 @app.route("/guess", methods=["GET", "POST"])
 def guess():
     if request.method == "POST":
+        # store what the player inputted as their guess
         weapon = request.form.get("weapon")
         person = request.form.get("person")
+        place = request.form.get("place")
+
         # error if the player does not select a weapon and a person
         if not weapon or not person:
             #TODO (probs don't actually want to go back to the gameboard)
@@ -82,20 +85,18 @@ def guess():
         if current_player > N:
             current_player = 1
 
-        # select all cards that the first player chose and that the second player has
+        # select all cards that the first player guessed and that the second player has
         player_cards = ("SELECT * FROM cards WHERE player_id = ? AND id IN (SELECT id FROM cards WHERE name = ? OR name = ? OR name = ?)",
                          current_player,
                          weapon,
                          person,
-                         
+                         place
                          )
-
         return render_template("revealcards.html", player_cards = player_cards)
+
     else:
-        weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon' AND player_id = ?",
-                             current_player)
-        people = db.execute("SELECT * FROM cards WHERE type = 'Person' AND player_id = ?",
-                            current_player)
+        weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
+        people = db.execute("SELECT * FROM cards WHERE type = 'Person'")
         return render_template("guess.html", weapons = weapons, people = people)
 
 @app.route("/revealcards", methods=["GET", "POST"])
