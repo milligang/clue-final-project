@@ -78,14 +78,19 @@ def guess():
             return render_template("gameboard.html")
 
         # go to the next player so they can select which card to reveal
-        """
         current_player += 1
         if current_player > N:
             current_player = 1
-        """
+
+        #
+
         return render_template("revealcards.html")
     else:
-        return render_template("guess.html")
+        weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon' AND player_id = ?",
+                             current_player #TODO)
+        people = db.execute("SELECT * FROM cards WHERE type = 'Person' AND player_id = ?",
+                            current_player #TODO)
+        return render_template("guess.html", weapons = weapons, people = people)
 
 @app.route("/revealcards", methods=["GET", "POST"])
 def revealcards():
