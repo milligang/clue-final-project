@@ -82,8 +82,12 @@ def guess():
         if current_player > N:
             current_player = 1
 
-        #
-        player_cards = ("SELECT * FROM cards WHERE player_id = ? AND", current_player)
+        # select all cards that the first player chose and that the second player has
+        player_cards = ("SELECT * FROM cards WHERE player_id = ? AND id IN (SELECT id FROM cards WHERE name = ? OR name = ? OR name = ?)",
+                         current_player,
+                         weapon,
+                         person,
+                         )
 
 
         return render_template("revealcards.html")
