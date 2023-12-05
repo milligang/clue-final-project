@@ -87,7 +87,7 @@ def guess():
                          current_player,
                          weapon,
                          person,
-                         room
+                         
                          )
 
         return render_template("revealcards.html", player_cards = player_cards)
