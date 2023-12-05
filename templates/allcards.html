@@ -7,9 +7,9 @@
     <body>
         <form action="/allcards" method="post">
             <table class="table">
-                {% for i in range 3 %}
+                {% for type in types %}
                 <tr>
-                    {% for card in cards %}
+                    {% for card in cards where card['type'] = type%}
                         <td class="card">
                             <h2>{{ card['type'] }}</h2>
                             <img src="{{ card['path'] }}" alt="{{ card['name'] }}">
