@@ -83,13 +83,15 @@ def guess():
             current_player = 1
 
         #
+        player_cards = ("SELECT * FROM cards WHERE player_id = ? AND", current_player)
+
 
         return render_template("revealcards.html")
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon' AND player_id = ?",
-                             current_player #TODO)
+                             current_player)
         people = db.execute("SELECT * FROM cards WHERE type = 'Person' AND player_id = ?",
-                            current_player #TODO)
+                            current_player)
         return render_template("guess.html", weapons = weapons, people = people)
 
 @app.route("/revealcards", methods=["GET", "POST"])
