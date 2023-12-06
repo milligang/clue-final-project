@@ -15,6 +15,7 @@ db = SQL("sqlite:///clue.db")
 
 N = 2 # the number of players
 C = 15 # the number of cards
+current_player = 0
 
 # Notes from creating sql table
 """
@@ -45,6 +46,7 @@ def start():
             i,
             (C - 3)/N
             )
+        current_player = 1
         return render_template("mycards.html")
     else:
         return render_template("homepage.html")
