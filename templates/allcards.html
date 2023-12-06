@@ -5,21 +5,19 @@
         <link href="/static/styles.css" rel="stylesheet">
     </head>
     <body>
-        <form action="/allcards" method="post">
-            <table class="table">
-                {% for i in range(3) %}
-                <tr>
-                    {% for j in range(5)%}
-                        <td class="card">
-                            <h2>{{ cards[5*i+j]['type'] }}</h2>
-                            <img src="{{ cards[5*i+j]['path'] }}" alt="{{ cards[5*i+j]['name'] }}">
-                            <h4>{{ cards[5*i+j]['name'] }}</h4>
-                        </td>
-                    {% endfor %}
-                </tr>
+        <table class="table">
+            {% for i in range(3) %}
+            <tr>
+                {% for j in range(5)%}
+                    <td class="card">
+                        <h2>{{ cards[5*i+j]['type'] }}</h2>
+                        <img src="{{ cards[5*i+j]['path'] }}" alt="{{ cards[5*i+j]['name'] }}">
+                        <h4>{{ cards[5*i+j]['name'] }}</h4>
+                    </td>
                 {% endfor %}
-                <button><a href="/mycards">Return</a></button>
-        </form>
+            </tr>
+            {% endfor %}
+            <button><a href="/mycards">Return</a></button>
     </body>
 </html>
 
