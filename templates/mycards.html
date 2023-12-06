@@ -9,19 +9,22 @@
     </head>
     <body class="body">
         <form action="/mycards" method="post">
-            {% for i in range(3) %}
-                <tr>
-                    {% for j in range(5)%}
-                        {% if cards[5*i+j][player_id] == current_player %}
-                            <td class="card">
-                                <h2>{{ cards[5*i+j]['type'] }}</h2>
-                                <img src="{{ cards[5*i+j]['path'] }}" alt="{{ cards[5*i+j]['name'] }}">
-                                <h4>{{ cards[5*i+j]['name'] }}</h4>
-                            </td>
-                        {% endif %}
-                    {% endfor %}
-                </tr>
-            {% endfor %}
+            <table class="table">
+                {% for i in range(3) %}
+                    <tr>
+                        {% for j in range(5)%}
+                            {% if cards[5*i+j]['player_id'] == current_player %}
+                                <td class="card">
+                                    <h2>{{ cards[5*i+j]['type'] }}</h2>
+                                    <img src="{{ cards[5*i+j]['path'] }}" alt="{{ cards[5*i+j]['name'] }}">
+                                    <h4>{{ cards[5*i+j]['name'] }}</h4>
+                                </td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </table>
             <div class="text">
                 Now that you know your own cards, click below to see all of the available options or go to the gameboard to select a location.
             </div>
