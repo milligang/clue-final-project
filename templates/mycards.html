@@ -12,7 +12,7 @@
             {% for i in range(3) %}
                 <tr>
                     {% for j in range(5)%}
-                        {% if cards[5*i+j][player_id] is current_player %}
+                        {% if cards[5*i+j][player_id] == current_player %}
                             <td class="card">
                                 <h2>{{ cards[5*i+j]['type'] }}</h2>
                                 <img src="{{ cards[5*i+j]['path'] }}" alt="{{ cards[5*i+j]['name'] }}">
