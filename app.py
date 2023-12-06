@@ -117,12 +117,14 @@ def revealcards():
             return render_template("homepage.html")
 
         # TODO: need to tell the original player the card that was selected
-        return redirect("mycards.html")
+        return redirect("/mycards")
     else:
         return render_template("revealcards.html")
 
-@app.route("/mycards")
+@app.route("/mycards", methods=["GET", "POST"])
 def mycards():
+    if request.method == "POST":
+        
     return render_template("mycards.html", cards = db.execute("SELECT * FROM cards"), current_player = session["current_player"])
 
 @app.route("/allcards")
