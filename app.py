@@ -44,9 +44,9 @@ def start():
     if request.method == "POST":
         # assign cards to players, and create a player 0 to store the winning cards
         db.execute("UPDATE cards SET player_id = NULL")
-        db.execute("UPDATE cards SET player_id = 0 WHERE id IN (SELECT id FROM cards ORDER BY RAND() LIMIT 3)")
+        db.execute("UPDATE cards SET player_id = 0 WHERE id IN (SELECT id FROM cards ORDER BY RANDOM() LIMIT 3)")
         for i in range(1, N+1):
-            db.execute("UPDATE cards SET player_id = ? WHERE id IN (SELECT id FROM cards ORDER BY RAND() LIMIT ? WHERE player_id = NULL",
+            db.execute("UPDATE cards SET player_id = ? WHERE id IN (SELECT id FROM cards WHERE player_id = NULL ORDER BY RANDOM() LIMIT ?)",
             i,
             (C - 3)/N
             )
