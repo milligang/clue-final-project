@@ -108,7 +108,7 @@ def guess():
                          )
         # if there are no cards in common then store message saying this
         if not session["player_cards"]:
-            session["player_cards"] = {"id": 0, "name": "No cards to reveal"}
+            session["player_cards"] = [{"id": 0, "name": "No cards to reveal"}]
 
         return redirect("/revealcards")
 
