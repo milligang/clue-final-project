@@ -107,8 +107,8 @@ def guess():
                          place
                          )
         # if there are no cards in common then store message saying this
-        if not session["player_cards"]:
-            session["player_cards"] = [{"id": 0, "name": "No cards to reveal"}]
+        #if not session["player_cards"]:
+            #session["player_cards"] = [{"id": 0, "name": "No cards to reveal"}]
 
         return redirect("/revealcards")
 
@@ -128,7 +128,7 @@ def revealcards():
         # TODO: need to tell the original player the card that was selected
         return redirect("/mycards")
     else:
-        print((session["player_cards"])[0]['name'])
+        print(session["player_cards"])
         return render_template("reveal.html", player_cards = session["player_cards"])
 
 @app.route("/mycards", methods=["GET", "POST"])
