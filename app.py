@@ -1,5 +1,5 @@
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request, session, get_flashed_messages
 from flask_session import Session
 
 # Configure application
@@ -93,7 +93,7 @@ def guess():
         # error if the player does not select a weapon and a person
         if not weapon or not person:
             #TODO (probs don't actually want to go back to the gameboard)
-            return render_template("gameboard.html")
+            return render_template("gameboard2.html")
 
         # go to the next player so they can select which card to reveal
         session["current_player"] += 1
@@ -118,7 +118,7 @@ def guess():
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
         people = db.execute("SELECT * FROM cards WHERE type = 'Person'")
         place = get_flashed_messages()
-        return render_template("guess.html", weapons = weapons, people = people, place = place)
+        return render_template("guess.html", weapons = weapons, people = people, place = ' '.join(place))
 
 @app.route("/revealcards", methods=["GET", "POST"])
 def revealcards():
