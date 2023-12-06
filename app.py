@@ -42,7 +42,6 @@ def start():
     session.clear()
 
     if request.method == "POST":
-
         # assign cards to players, and create a player 0 to store the winning cards
         db.execute("UPDATE cards SET player_id = NULL")
         db.execute("UPDATE cards SET player_id = 0 WHERE id IN (SELECT id FROM cards ORDER BY RAND() LIMIT 3)")
@@ -54,8 +53,8 @@ def start():
 
         # it is player 1's turn
         session["current_player"] = 1
+        return redirect("/mycards")
 
-        return render_template("mycards.html")
     else:
         return render_template("homepage.html")
 
@@ -72,7 +71,7 @@ def gameboard2():
         # else, this is a typical turn and so proceed to page where the user can enter their guess
         else:
             flash(room)
-            return render_template("guess.html")
+            return redirect("/guess")
 
     else:
         return render_template("gameboard2.html")
