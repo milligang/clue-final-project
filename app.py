@@ -83,11 +83,12 @@ def guess():
     if "player_cards" in session:
         session["player_cards"].clear()
 
+    place = request.form.get("place")
+
     if request.method == "POST":
         # store what the player inputted as their guess
         weapon = request.form.get("weapon")
         person = request.form.get("person")
-        place = request.form.get("place")
 
         # error if the player does not select a weapon and a person
         if not weapon or not person:
