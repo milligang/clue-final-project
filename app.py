@@ -54,7 +54,7 @@ def start():
 
         # it is player 1's turn
         session["current_player"] = [1]
-        return redirect("/mycards", current_player = session["current_player"])
+        return redirect("/mycards", current_player=session["current_player"])
 
     else:
         return render_template("homepage.html")
