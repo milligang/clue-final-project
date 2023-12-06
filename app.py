@@ -96,13 +96,13 @@ def guess():
             session["current_player"] = 1
 
         # select all cards that the first player guessed and that the second player has
-        player_cards = ("SELECT * FROM cards WHERE player_id = ? AND id IN (SELECT id FROM cards WHERE name = ? OR name = ? OR name = ?)",
-                         current_player,
+        session["player_cards"] = ("SELECT * FROM cards WHERE player_id = ? AND id IN (SELECT id FROM cards WHERE name = ? OR name = ? OR name = ?)",
+                         session["current_player"],
                          weapon,
                          person,
                          place
                          )
-        return redirect("/revealcards", player_cards = player_cards)
+        return redirect("/revealcards")
 
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
@@ -120,7 +120,7 @@ def revealcards():
         # TODO: need to tell the original player the card that was selected
         return redirect("/mycards")
     else:
-        return render_template("revealcards.html")
+        return render_template("reveal.html", player_cards = session["player_cards"])
 
 @app.route("/mycards", methods=["GET", "POST"])
 def mycards():
