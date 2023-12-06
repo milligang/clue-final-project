@@ -124,8 +124,9 @@ def revealcards():
 @app.route("/mycards", methods=["GET", "POST"])
 def mycards():
     if request.method == "POST":
-        
-    return render_template("mycards.html", cards = db.execute("SELECT * FROM cards"), current_player = session["current_player"])
+        redirect("/gameboard2")
+    else:
+        return render_template("mycards.html", cards = db.execute("SELECT * FROM cards"), current_player = session["current_player"])
 
 @app.route("/allcards")
 def allcards():
