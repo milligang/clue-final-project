@@ -6,7 +6,7 @@
     </head>
     <body>
         <form action="/guess" method="post">
-            <p class="header" name="place" value="{{ get_flashed_messages() | join(' ') }}">{{ get_flashed_messages() | join(" ")}}</p>
+            <p class="header" name="place" value="{{ place }}">{{ place }}</p>
             <select class="text" id="weapon" name="weapon">
                 <option disabled selected>Select a weapon</option>
                 {% for weapon in weapons %}

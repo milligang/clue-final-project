@@ -117,7 +117,8 @@ def guess():
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
         people = db.execute("SELECT * FROM cards WHERE type = 'Person'")
-        return render_template("guess.html", weapons = weapons, people = people)
+        place = get_flashed_messages()
+        return render_template("guess.html", weapons = weapons, people = people, place = place)
 
 @app.route("/revealcards", methods=["GET", "POST"])
 def revealcards():
