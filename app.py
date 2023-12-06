@@ -15,7 +15,6 @@ db = SQL("sqlite:///clue.db")
 
 N = 2 # the number of players
 C = 15 # the number of cards
-current_player = 0
 
 # Notes from creating sql table
 """
@@ -38,7 +37,13 @@ def after_request(response):
 
 @app.route("/", methods=["GET", "POST"])
 def start():
+
+    # forget any player_ids
+    session.clear()
+
     if request.method == "POST":
+
+        # assign cards to players and 
         db.execute("UPDATE cards SET player_id = NULL")
         db.execute("UPDATE cards SET player_id = 0 WHERE id IN (SELECT id FROM cards ORDER BY RAND() LIMIT 3)")
         for i in range(1, N+1):
@@ -46,7 +51,10 @@ def start():
             i,
             (C - 3)/N
             )
-        current_player = 1
+
+        # it is player 1's turn
+        session["current_player"] = 1
+
         return render_template("mycards.html")
     else:
         return render_template("homepage.html")
