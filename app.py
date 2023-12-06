@@ -104,7 +104,7 @@ def guess():
                          )
         # if there are no cards in common, mention this
         if not session["player_cards"]:
-            session["player_cards"] = ["id: "]
+            session["player_cards"] = {"id": 0, "}
 
         return redirect("/revealcards")
 
