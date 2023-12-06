@@ -38,7 +38,7 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 def start():
 
-    # forget any player_ids
+    # forget any player_ids and cards
     session.clear()
 
     if request.method == "POST":
@@ -47,7 +47,7 @@ def start():
         for type in ["Weapon", "Place", "Person"]:
             db.execute("UPDATE cards SET player_id = 0 WHERE id IN (SELECT id FROM cards WHERE type = ? ORDER BY RANDOM() LIMIT 1)", type)
         for i in range(1, N+1):
-            db.execute("UPDATE cards SET player_id = ? WHERE id IN (SELECT id FROM cards WHERE player_id = NULL ORDER BY RANDOM() LIMIT ?)",
+            db.execute("UPDATE cards SET player_id = ? WHERE id IN (SELECT id FROM cards WHERE player_id IS NULL ORDER BY RANDOM() LIMIT ?)",
             i,
             (C - 3)/N
             )
@@ -79,6 +79,7 @@ def gameboard2():
 
 @app.route("/guess", methods=["GET", "POST"])
 def guess():
+    session["player_cards"].clear()
     if request.method == "POST":
         # store what the player inputted as their guess
         weapon = request.form.get("weapon")
@@ -102,9 +103,9 @@ def guess():
                          person,
                          place
                          )
-        # if there are no cards in common, mention this
+        # if there are no cards in common then store message saying this
         if not session["player_cards"]:
-            session["player_cards"] = {"id": 0, "}
+            session["player_cards"] = {"id": 0, "name": "No cards to reveal"}
 
         return redirect("/revealcards")
 
