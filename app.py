@@ -79,7 +79,10 @@ def gameboard2():
 
 @app.route("/guess", methods=["GET", "POST"])
 def guess():
-    session["player_cards"].clear()
+    # forgot past cards
+    if "player_cards" in session:
+        session["player_cards"].clear()
+
     if request.method == "POST":
         # store what the player inputted as their guess
         weapon = request.form.get("weapon")
