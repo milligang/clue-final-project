@@ -91,9 +91,9 @@ def guess():
             return render_template("gameboard.html")
 
         # go to the next player so they can select which card to reveal
-        current_player += 1
-        if current_player > N:
-            current_player = 1
+        session["current_player"] += 1
+        if session["current_player"] > N:
+            session["current_player"] = 1
 
         # select all cards that the first player guessed and that the second player has
         player_cards = ("SELECT * FROM cards WHERE player_id = ? AND id IN (SELECT id FROM cards WHERE name = ? OR name = ? OR name = ?)",
