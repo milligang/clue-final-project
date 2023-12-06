@@ -101,7 +101,7 @@ def guess():
                          person,
                          place
                          )
-        return render_template("revealcards.html", player_cards = player_cards)
+        return redirect("/revealcards", player_cards = player_cards)
 
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
@@ -117,7 +117,7 @@ def revealcards():
             return render_template("homepage.html")
 
         # TODO: need to tell the original player the card that was selected
-        return render_template("mycards.html")
+        return redirect("mycards.html")
     else:
         return render_template("revealcards.html")
 
@@ -132,6 +132,6 @@ def allcards():
 @app.route("/finalguess")
 def finalguess():
     if request.method == "POST":
-        return render_template("homepage.html")
+        return redirect("/homepage")
     else:
         return render_template("harvard.html")
