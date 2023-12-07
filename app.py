@@ -126,6 +126,7 @@ def revealcards():
         # TODO: need to tell the original player the card that was selected
         return redirect("/mycards")
     else:
+        print(session["selected"], session["selected"][0]["Person"])
         # select all cards that the first player guessed and that the second player has
         player_cards = db.execute("SELECT * FROM cards WHERE player_id = ? AND (id = ? OR id = ? or name = ?)",
                          session["current_player"],
