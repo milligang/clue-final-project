@@ -119,7 +119,7 @@ def revealcards():
         card = request.form.get("card")
         if not card:
             # if the player did not select a card to reveal, we will just select one for them
-            card = request.form.get
+            card = request.form.get("backup card")
 
         flash(card)
         return redirect("/buffer")
@@ -153,8 +153,11 @@ def buffer():
     if request.method == "POST":
         return redirect("/mycards")
     else:
-        revealed = get_flashed_messages()
+        revealed = ' '.join(get_flashed_messages())
+
+        # error if nothing in revealed, because this should already be checked in revealcards
         if not revealed:
+            revealed = "Error getting revealed card"
 
         return render_template("buffer.html", revealed = ' '.join(revealed))
 
