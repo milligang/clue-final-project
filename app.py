@@ -146,7 +146,11 @@ def allcards():
 @app.route("/finalguess")
 def finalguess():
     if request.method == "POST":
-        
+        final_guess = {}
+        for type in ["place", "person", "weapon"]:
+            final_guess[type] = request.form.get(type)
+
+        flash(final_guess)
         return redirect("/gameover")
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
@@ -159,11 +163,17 @@ def gameover():
     if request.method == "POST":
         return redirect("/homepage")
     else:
+        final_guess = get_flashed_messages()
         winning_cards = {}
-        for type in ["Place", "Person", "Weapon"]:
+        types = ["Place", "Person", "Weapon"]
+
+        for type in types:
+            # find out what the winning cards are
             name = db.execute("SELECT name FROM cards WHERE player_id = 0 AND type = ?", type)
             winning_cards[type] = name[0]
+            # determine the winner
+            if final_guess[type] != winning_cards[type]:
+                text = "You chose poorly..."
 
-        text = get_flashed_messages()
-        return render_template("gameover.html", winning_cards = winning_cards, text = ' '.join(text))
+        return render_template("gameover.html", winning_cards = winning_cards, text = text)
 
