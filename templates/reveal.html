@@ -7,7 +7,9 @@
     <body>
         <form action="/revealcards" method="post">
             <div class="center">
-                <
+                <div class="body">
+                    Select one card from your hand to reveal to your opponent
+                </div>
                 <select class="body" id="person" name="person">
                     <option disabled selected>Select a card to reveal</option>
                     {% for card in player_cards %}
