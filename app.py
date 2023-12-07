@@ -148,4 +148,7 @@ def finalguess():
     if request.method == "POST":
         return redirect("/homepage")
     else:
-        return render_template("harvard.html")
+        cards = {}
+        for type in ["place", "person", "weapon"]:
+            cards[type: db.execute("SELECT name FROM cards WHERE player_id = 0 AND type = ?", type)]
+        return render_template("harvard.html", cards = cards)
