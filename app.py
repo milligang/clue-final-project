@@ -100,7 +100,7 @@ def guess():
 
         # store the cards that the player guessed
         session["selected"] = [{"Weapon": weapon, "Person": person, "Place": place}]
-
+        
         return redirect("/revealcards")
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
