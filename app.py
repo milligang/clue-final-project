@@ -161,7 +161,7 @@ def finalguess():
 @app.route("/gameover")
 def gameover():
     if request.method == "POST":
-        return redirect("/homepage")
+        return redirect("/")
     else:
         if not get_flashed_messages():
             return redirect("/finalguess")
@@ -169,15 +169,15 @@ def gameover():
         final_guess = get_flashed_messages()[0]
         winning_cards = {}
         types = ["Place", "Person", "Weapon"]
+        text = "Congrats, you win!"
 
         for type in types:
             # find out what the winning cards are
             name = db.execute("SELECT name FROM cards WHERE player_id = 0 AND type = ?", type)
-            winning_cards[type] = name[0]
+            winning_cards[type] = name[0]['name']
             # determine the winner
             if final_guess[type] != winning_cards[type]:
                 text = "You chose poorly..."
-            print(winning_cards)
-            
+
         return render_template("gameover.html", winning_cards = winning_cards, text = text)
 
