@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html lang="en" class="margin">
+    <head>
+        <title>Game Over</title>
+        <link href="/static/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <form action="/finalguess" method="post">
+            <div class="center">
+                <h1 class="header">{{ text }}</h1>
+                <p>It was {{ winning_cards['person'] }} with the {{ winning_cards['</p>
+                <button name="submit" type="button">Submit</button>
+            </div>
+        </form>
+    </body>
+</html>

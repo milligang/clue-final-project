@@ -146,13 +146,24 @@ def allcards():
 @app.route("/finalguess")
 def finalguess():
     if request.method == "POST":
-        winning_cards = {}
-        for type in ["Place", "Person", "Weapon"]:
-            name = db.execute("SELECT name FROM cards WHERE player_id = 0 AND type = ?", type)
-            winning_cards[type] = name[0]
-        return redirect("/homepage")
+        
+        return redirect("/gameover")
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
         people = db.execute("SELECT * FROM cards WHERE type = 'Person'")
         places = db.execute("SELECT * FROM cards WHERE type = 'Place'")
         return render_template("harvard.html", weapons = weapons, people = people, places = places)
+
+@app.route("/gameover")
+def gameover():
+    if request.method == "POST":
+        return redirect("/homepage")
+    else:
+        winning_cards = {}
+        for type in ["Place", "Person", "Weapon"]:
+            name = db.execute("SELECT name FROM cards WHERE player_id = 0 AND type = ?", type)
+            winning_cards[type] = name[0]
+
+        text = get_flashed_messages()
+        return render_template("gameover.html", winning_cards = winning_cards, text = ' '.join(text))
+
