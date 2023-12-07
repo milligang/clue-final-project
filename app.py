@@ -187,7 +187,7 @@ def finalguess():
         places = db.execute("SELECT * FROM cards WHERE type = 'Place'")
         return render_template("harvard.html", weapons = weapons, people = people, places = places)
 
-@app.route("/gameover")
+@app.route("/gameover", methods=["GET", "POST"])
 def gameover():
     if request.method == "POST":
         return redirect("/")
