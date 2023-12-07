@@ -109,6 +109,11 @@ def guess():
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
         people = db.execute("SELECT * FROM cards WHERE type = 'Person'")
         place = get_flashed_messages()
+
+        # select a new room if no flashed messages
+        if not place:
+            return redirect("/gameboard2")
+        
         return render_template("guess.html", weapons = weapons, people = people, place = ' '.join(place))
 
 @app.route("/revealcards", methods=["GET", "POST"])
@@ -135,7 +140,8 @@ def revealcards():
 
         # if there is nothing stored in session["selected"], let previous player make the guess again
         if not session["selected"]:
-            return redirect()
+            # TODO
+            return redirect("/gameboard2")
 
         return render_template("reveal.html", player_cards = player_cards, guess_cards = session["selected"])
 
