@@ -9,6 +9,9 @@
         <form action="/revealcards" method="post">
             <div class="center">
                 <div class="body">
+                    The previous player thinks it was {{ guess_cards["Person"] }} with the {{ guess_cards["Weapon"] }} in {{ guess_cards["Place"] }}.
+                </div>
+                <div class="body">
                     Select one card from your hand to reveal to your opponent, or select "no cards to reveal" if you do not have any of the options in your hand.
                 </div>
                 <select class="body" id="person" name="person">

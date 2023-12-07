@@ -100,16 +100,8 @@ def guess():
         if session["current_player"] > N:
             session["current_player"] = 1
 
-        # select all cards that the first player guessed and that the second player has
-        session["player_cards"] = db.execute("SELECT * FROM cards WHERE player_id = ? AND (id = ? OR id = ? or name = ?)",
-                         session["current_player"],
-                         weapon,
-                         person,
-                         place
-                         )
-        # if there are no cards in common then store message saying this
-        if not session["player_cards"]:
-            session["player_cards"] = [{"id": 0, "name": "No cards to reveal"}]
+        # store the cards that the player guessed
+        session["selected"] = [{"Weapon": weapon, "Person": person, "Place": place}]
 
         return redirect("/revealcards")
 
@@ -130,7 +122,18 @@ def revealcards():
         # TODO: need to tell the original player the card that was selected
         return redirect("/mycards")
     else:
-        return render_template("reveal.html", player_cards = session["player_cards"])
+        # select all cards that the first player guessed and that the second player has
+        player_cards = db.execute("SELECT * FROM cards WHERE player_id = ? AND (id = ? OR id = ? or name = ?)",
+                         session["current_player"],
+                         session["selected"]["Weapon"],
+                         session["selected"]["Person"],
+                         session["selected"]["Place"]
+                         )
+        # if there are no cards in common then store message saying this
+        if not player_cards:
+            player_cards = [{"id": 0, "name": "No cards to reveal"}]
+
+        return render_template("reveal.html", player_cards = player_cards, guess_cards = session["selected"])
 
 @app.route("/mycards", methods=["GET", "POST"])
 def mycards():
