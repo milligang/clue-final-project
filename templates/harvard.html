@@ -3,30 +3,34 @@
 <html lang="en" class="margin">
     <head>
         <title>Final Guess</title>
+        <link href="/static/styles.css" rel="stylesheet">
     </head>
     <body>
         <form action="/finalguess" method="post">
             <div class="center">
                 <h1 class="header">Final Guess</h1>
-                <div class="body">
-                    It was
-                    <select class="form-select mx-auto w-auto" name="person">
-                        <option disabled="" selected="">Person</option>
-                        <option value="{{ cards['person'] }}">{{ cards['person'] }}</option>
-                    </select>
-                    with the
-                    <select class="body" name="weapon">
-                        <option disabled selected>Weapon</option>
-                        <option value="{{ cards['weapon'] }}">{{ cards['weapon'] }}</option>
-                    </select>
-                    in
-                    <div class="mb-3">
-                        <select class="form-select mx-auto w-auto" name="place">
-                            <option disabled="" selected="">Place</option>
-                            <option value="{{ cards['place'] }}">{{ cards['place'] }}</option>
-                        </select>
-                    </div> <br>
-                </div>
+                It was
+                <select class="body" id="person" name="person">
+                    <option disabled selected>Person</option>
+                    {% for person in people %}
+                        <option value="{{ person['id'] }}">{{ person['name'] }}</option>
+                    {% endfor %}
+                </select>
+                with the
+                <select class="body" id="weapon" name="weapon">
+                    <option disabled selected>Weapon</option>
+                    {% for weapon in weapons %}
+                        <option value="{{ weapon['id'] }}">{{ weapon['name'] }}</option>
+                    {% endfor %}
+                </select>
+                in
+                <select class="body" id="place" name="place">
+                    <option disabled selected>Place</option>
+                    {% for place in places %}
+                        <option value="{{ place['id'] }}">{{ place['name'] }}</option>
+                    {% endfor %}
+                </select>
+                <button name="submit" type="submit">Submit</button>
             </div>
         </form>
     </body>
