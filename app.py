@@ -101,7 +101,6 @@ def guess():
             session["current_player"] = 1
 
         # select all cards that the first player guessed and that the second player has
-        print(session["current_player"], weapon, person, place)
         session["player_cards"] = db.execute("SELECT * FROM cards WHERE player_id = ? AND (id = ? OR id = ? or name = ?)",
                          session["current_player"],
                          weapon,
