@@ -6,8 +6,9 @@
     </head>
     <body>
         <form action="/guess" method="post">
+            <input type="hidden" name="place" value="{{ place }}">
             <div class="center">
-                <div class="header" name="place" value="{{ place }}">{{ place }}</div>
+                <p class="header">{{ place }}</p>
                 <select class="body" id="weapon" name="weapon">
                     <option disabled selected>Select a weapon</option>
                     {% for weapon in weapons %}
