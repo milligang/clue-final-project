@@ -163,7 +163,10 @@ def gameover():
     if request.method == "POST":
         return redirect("/homepage")
     else:
-        final_guess = get_flashed_messages()
+        if not get_flashed_messages():
+            return redirect("/finalguess")
+
+        final_guess = get_flashed_messages()[0]
         winning_cards = {}
         types = ["Place", "Person", "Weapon"]
 
@@ -174,6 +177,7 @@ def gameover():
             # determine the winner
             if final_guess[type] != winning_cards[type]:
                 text = "You chose poorly..."
-
+            print(winning_cards)
+            
         return render_template("gameover.html", winning_cards = winning_cards, text = text)
 
