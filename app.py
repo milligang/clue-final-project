@@ -148,6 +148,13 @@ def revealcards():
 
         return render_template("reveal.html", player_cards = player_cards, guess_cards = guess_cards)
 
+@app.route("/buffer", methods=["GET", "POST"])
+def buffer():
+    if request.method == "POST":
+        return redirect("/mycards")
+    else:
+        return render_template("buffer.html", )
+
 @app.route("/mycards", methods=["GET", "POST"])
 def mycards():
     if request.method == "POST":

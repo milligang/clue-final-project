@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Game board</title>
+    </head>
+    <body>
+        <form action="/buffer" method="post">
+            <div class="center">
+                <p>The other player has {{ revealed }}</p>
+                <button class="button" type="submit"> Next Player's Turn </button>
+        </form>
+    </body>
+</html>
