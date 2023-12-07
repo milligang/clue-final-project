@@ -80,8 +80,8 @@ def gameboard2():
 @app.route("/guess", methods=["GET", "POST"])
 def guess():
     # forgot past cards
-    if "player_cards" in session:
-        session["player_cards"].clear()
+    if "selected" in session:
+        session["selected"].clear()
 
     place = request.form.get("place")
 
