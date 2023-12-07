@@ -14,7 +14,7 @@
                 <div class="body">
                     Select one card from your hand to reveal to your opponent, or select "no cards to reveal" if you do not have any of the options in your hand.
                 </div>
-                <select class="body" id="person" name="person">
+                <select class="body" id="reveal" name="reveal">
                     <option disabled selected>Select a card to reveal</option>
                     {% for card in player_cards %}
                         <option value="{{ card['id'] }}">{{ card['name'] }}</option>

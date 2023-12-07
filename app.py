@@ -121,8 +121,8 @@ def revealcards():
             # TODO: error if the user did not select a card to reveal
             return render_template("homepage.html")
 
-        # TODO: need to tell the original player the card that was selected
-        return redirect("/mycards")
+        flash(card)
+        return redirect("/buffer")
     else:
         # if there is nothing stored in session["selected"], let previous player make the guess again
         if not session["selected"]:
@@ -153,7 +153,10 @@ def buffer():
     if request.method == "POST":
         return redirect("/mycards")
     else:
-        return render_template("buffer.html", )
+        revealed = get_flashed_messages()
+        if not revealed:
+
+        return render_template("buffer.html", revealed = ' '.join(revealed))
 
 @app.route("/mycards", methods=["GET", "POST"])
 def mycards():
