@@ -143,7 +143,7 @@ def mycards():
 def allcards():
     return render_template("allcards.html", cards = db.execute("SELECT * FROM cards"))
 
-@app.route("/finalguess")
+@app.route("/finalguess", methods=["GET", "POST"])
 def finalguess():
     if request.method == "POST":
         final_guess = {}
