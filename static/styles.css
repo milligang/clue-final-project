@@ -55,6 +55,9 @@
     width: 85%;
 }
 
-.button {
-    
+button {
+    color: rgba(150, 0, 0, 0.8);
+    font-size: 20px;
+    background-color: white;
+    border-color: rgba(150, 0, 0, 0.8);
 }
