@@ -125,13 +125,17 @@ def revealcards():
         # select all cards that the first player guessed and that the second player has
         player_cards = db.execute("SELECT * FROM cards WHERE player_id = ? AND (id = ? OR id = ? or name = ?)",
                          session["current_player"],
-                         session["selected"]["Weapon"],
-                         session["selected"]["Person"],
-                         session["selected"]["Place"]
+                         (session["selected"][0])["Weapon"],
+                         (session["selected"][0])["Person"],
+                         (session["selected"][0])["Place"]
                          )
         # if there are no cards in common then store message saying this
         if not player_cards:
             player_cards = [{"id": 0, "name": "No cards to reveal"}]
+
+        # if there is nothing stored in session["selected"], let previous player make the guess again
+        if not session["selected"]:
+            return redirect()
 
         return render_template("reveal.html", player_cards = player_cards, guess_cards = session["selected"])
 
