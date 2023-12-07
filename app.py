@@ -100,7 +100,7 @@ def guess():
 
         # store the cards that the player guessed
         session["selected"] = [{"Weapon": weapon, "Person": person, "Place": place}]
-        
+
         return redirect("/revealcards")
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
@@ -139,6 +139,10 @@ def revealcards():
         # if there is nothing stored in session["selected"], let previous player make the guess again
         if not session["selected"]:
             return redirect("/gameboard2")
+
+        guess_cards = []
+        for type in ["Weapon", "Person", "Place"]:
+            guess_cards[type] = db.execute("SELECT name FROM cards WHERE )
 
         return render_template("reveal.html", player_cards = player_cards, guess_cards = session["selected"])
 
