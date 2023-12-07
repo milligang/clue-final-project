@@ -13,24 +13,24 @@
                 <select class="body" id="person" name="Person">
                     <option disabled selected>Person</option>
                     {% for person in people %}
-                        <option value="{{ person['id'] }}">{{ person['name'] }}</option>
+                        <option value="{{ person['name'] }}">{{ person['name'] }}</option>
                     {% endfor %}
                 </select>
                 with the
                 <select class="body" id="weapon" name="Weapon">
                     <option disabled selected>Weapon</option>
                     {% for weapon in weapons %}
-                        <option value="{{ weapon['id'] }}">{{ weapon['name'] }}</option>
+                        <option value="{{ weapon['name'] }}">{{ weapon['name'] }}</option>
                     {% endfor %}
                 </select>
                 in
                 <select class="body" id="place" name="Place">
                     <option disabled selected>Place</option>
                     {% for place in places %}
-                        <option value="{{ place['id'] }}">{{ place['name'] }}</option>
+                        <option value="{{ place['name'] }}">{{ place['name'] }}</option>
                     {% endfor %}
                 </select>
-                <button name="submit" type="button">Submit</button>
+                <button name="submit" type="submit">Submit</button>
             </div>
         </form>
     </body>

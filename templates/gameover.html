@@ -6,10 +6,10 @@
         <link href="/static/styles.css" rel="stylesheet">
     </head>
     <body>
-        <form action="/finalguess" method="post">
+        <form action="/gameover" method="post">
             <div class="center">
                 <h1 class="header">{{ text }}</h1>
-                <p>It was {{ winning_cards['person'] }} with the {{ winning_cards['</p>
+                <p>It was {{ winning_cards['Person'] }} with the {{ winning_cards['Weapon'] }} in {{ winning_cards['Place'] }}</p>
                 <button name="submit" type="button">Submit</button>
             </div>
         </form>
