@@ -153,13 +153,13 @@ def buffer():
     if request.method == "POST":
         return redirect("/mycards")
     else:
-        revealed = ' '.join(get_flashed_messages())
+        revealed = get_flashed_messages()[0]
 
         # error if nothing in revealed, because this should already be checked in revealcards
         if not revealed:
             revealed = "Error getting revealed card"
 
-        return render_template("buffer.html", revealed = ' '.join(revealed))
+        return render_template("buffer.html", revealed = revealed)
 
 @app.route("/mycards", methods=["GET", "POST"])
 def mycards():
