@@ -61,3 +61,7 @@ button {
     align-items: center;
     text-align: center;
 }
+
+.center > * {
+    margin: 1%;
+}
