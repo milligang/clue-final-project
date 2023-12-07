@@ -6,13 +6,15 @@
     </head>
     <body>
         <form action="/revealcards" method="post">
-            <select class="text" id="person" name="person">
-                <option disabled selected>Select a card to reveal</option>
-                {% for card in player_cards %}
-                    <option value="{{ card['id'] }}">{{ card['name'] }}</option>
-                {% endfor %}
-            </select>
-            <button name="submit" type="submit">Submit</button>
+            <div class="center">
+                <select class="body" id="person" name="person">
+                    <option disabled selected>Select a card to reveal</option>
+                    {% for card in player_cards %}
+                        <option value="{{ card['id'] }}">{{ card['name'] }}</option>
+                    {% endfor %}
+                </select>
+                <button name="submit" type="submit">Submit</button>
+            </div>
         </form>
     </body>
 </html>

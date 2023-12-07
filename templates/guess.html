@@ -7,13 +7,13 @@
     <body>
         <form action="/guess" method="post">
             <p class="header" name="place" value="{{ place }}">{{ place }}</p>
-            <select class="text" id="weapon" name="weapon">
+            <select class="body" id="weapon" name="weapon">
                 <option disabled selected>Select a weapon</option>
                 {% for weapon in weapons %}
                     <option value="{{ weapon['id'] }}">{{ weapon['name'] }}</option>
                 {% endfor %}
             </select>
-            <select class="text" id="person" name="person">
+            <select class="body" id="person" name="person">
                 <option disabled selected>Select a suspect</option>
                 {% for person in people %}
                     <option value="{{ person['id'] }}">{{ person['name'] }}</option>
