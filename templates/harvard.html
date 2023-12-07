@@ -10,21 +10,21 @@
             <div class="center">
                 <h1 class="header">Final Guess</h1>
                 It was
-                <select class="body" id="person" name="person">
+                <select class="body" id="person" name="Person">
                     <option disabled selected>Person</option>
                     {% for person in people %}
                         <option value="{{ person['id'] }}">{{ person['name'] }}</option>
                     {% endfor %}
                 </select>
                 with the
-                <select class="body" id="weapon" name="weapon">
+                <select class="body" id="weapon" name="Weapon">
                     <option disabled selected>Weapon</option>
                     {% for weapon in weapons %}
                         <option value="{{ weapon['id'] }}">{{ weapon['name'] }}</option>
                     {% endfor %}
                 </select>
                 in
-                <select class="body" id="place" name="place">
+                <select class="body" id="place" name="Place">
                     <option disabled selected>Place</option>
                     {% for place in places %}
                         <option value="{{ place['id'] }}">{{ place['name'] }}</option>

@@ -147,7 +147,7 @@ def allcards():
 def finalguess():
     if request.method == "POST":
         final_guess = {}
-        for type in ["place", "person", "weapon"]:
+        for type in ["Place", "Person", "Weapon"]:
             final_guess[type] = request.form.get(type)
 
         flash(final_guess)
