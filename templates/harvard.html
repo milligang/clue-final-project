@@ -6,29 +6,31 @@
     </head>
     <body class="body">
         <form action="/finalguess" method="post">
-            <h1 class="header">Final Guess</h1>
-            <div class="body">
-                It was
-                <div class="mb-3">
-                    <select class="form-select mx-auto w-auto" name="person">
-                        <option disabled="" selected="">Person</option>
-                        <option value="{{ cards['person'] }}">{{ cards['person'] }}</option>
-                    </select>
-                </div> <br>
-                with the
-                <div class="mb-3">
-                    <select class="form-select mx-auto w-auto" name="weapon">
-                        <option disabled="" selected="">Weapon</option>
-                        <option value="{{ cards['weapon'] }}">{{ cards['weapon'] }}</option>
-                    </select>
-                </div> <br>
-                in
-                <div class="mb-3">
-                    <select class="form-select mx-auto w-auto" name="place">
-                        <option disabled="" selected="">Place</option>
-                        <option value="{{ cards['place'] }}">{{ cards['place'] }}</option>
-                    </select>
-                </div> <br>
+            <div class="center">
+                <h1 class="header">Final Guess</h1>
+                <div class="body">
+                    It was
+                    <div class="mb-3">
+                        <select class="form-select mx-auto w-auto" name="person">
+                            <option disabled="" selected="">Person</option>
+                            <option value="{{ cards['person'] }}">{{ cards['person'] }}</option>
+                        </select>
+                    </div> <br>
+                    with the
+                    <div class="mb-3">
+                        <select class="form-select mx-auto w-auto" name="weapon">
+                            <option disabled="" selected="">Weapon</option>
+                            <option value="{{ cards['weapon'] }}">{{ cards['weapon'] }}</option>
+                        </select>
+                    </div> <br>
+                    in
+                    <div class="mb-3">
+                        <select class="form-select mx-auto w-auto" name="place">
+                            <option disabled="" selected="">Place</option>
+                            <option value="{{ cards['place'] }}">{{ cards['place'] }}</option>
+                        </select>
+                    </div> <br>
+                </div>
             </div>
         </form>
     </body>

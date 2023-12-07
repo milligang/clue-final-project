@@ -68,7 +68,7 @@ def gameboard2():
             return render_template("gameboard2.html")
         # if the location is harvard hall, the user is submitting their final guess to end the game
         elif room == "Harvard Hall":
-            return render_template("harvard.html")
+            return redirect("/finalguess")
         # else, this is a typical turn and so proceed to page where the user can enter their guess
         else:
             flash(room)
@@ -149,6 +149,7 @@ def finalguess():
         return redirect("/homepage")
     else:
         cards = {}
-        for type in ["place", "person", "weapon"]:
-            cards[type: db.execute("SELECT name FROM cards WHERE player_id = 0 AND type = ?", type)]
+        for type in ["Place", "Person", "Weapon"]:
+            name = db.execute("SELECT name FROM cards WHERE player_id = 0 AND type = ?", type)
+            cards[type] = name[0]
         return render_template("harvard.html", cards = cards)
