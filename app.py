@@ -83,12 +83,11 @@ def guess():
     if "selected" in session:
         session["selected"].clear()
 
-    place = request.form.get("place")
-
     if request.method == "POST":
         # store what the player inputted as their guess
         weapon = request.form.get("weapon")
         person = request.form.get("person")
+        place = request.form.get("place")
 
         # error if the player does not select a weapon and a person
         if not weapon or not person:
@@ -103,7 +102,6 @@ def guess():
         session["selected"] = [{"Weapon": weapon, "Person": person, "Place": place}]
 
         return redirect("/revealcards")
-
     else:
         weapons = db.execute("SELECT * FROM cards WHERE type = 'Weapon'")
         people = db.execute("SELECT * FROM cards WHERE type = 'Person'")
