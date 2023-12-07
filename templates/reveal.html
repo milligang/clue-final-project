@@ -20,6 +20,7 @@
                         <option value="{{ card['id'] }}">{{ card['name'] }}</option>
                     {% endfor %}
                 </select>
+                <input type="hidden" name="backup card" value="{{ player_cards[0]['id'] }}">
                 <button type="submit">Submit</button>
             </div>
         </form>
