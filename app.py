@@ -92,8 +92,7 @@ def guess():
 
         # error if the player does not select a weapon and a person
         if not weapon or not person:
-            #TODO (probs don't actually want to go back to the gameboard)
-            return render_template("gameboard2.html")
+            return redirect("/gameboard2")
 
         # go to the next player so they can select which card to reveal
         session["current_player"] += 1
@@ -113,7 +112,7 @@ def guess():
         # select a new room if no flashed messages
         if not place:
             return redirect("/gameboard2")
-        
+
         return render_template("guess.html", weapons = weapons, people = people, place = ' '.join(place))
 
 @app.route("/revealcards", methods=["GET", "POST"])
@@ -140,7 +139,6 @@ def revealcards():
 
         # if there is nothing stored in session["selected"], let previous player make the guess again
         if not session["selected"]:
-            # TODO
             return redirect("/gameboard2")
 
         return render_template("reveal.html", player_cards = player_cards, guess_cards = session["selected"])
