@@ -118,8 +118,8 @@ def revealcards():
     if request.method == "POST":
         card = request.form.get("card")
         if not card:
-            # TODO: error if the user did not select a card to reveal
-            return render_template("homepage.html")
+            # if the player did not select a card to reveal, we will just select one for them
+            card = request.form.get
 
         flash(card)
         return redirect("/buffer")
