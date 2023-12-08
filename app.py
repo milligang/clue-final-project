@@ -116,7 +116,7 @@ def guess():
 @app.route("/revealcards", methods=["GET", "POST"])
 def revealcards():
     if request.method == "POST":
-        card = request.form.get("card")
+        card = request.form.get("reveal")
         if not card:
             # if the player did not select a card to reveal, we will just select one for them
             card = request.form.get("backup card")
