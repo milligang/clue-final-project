@@ -17,7 +17,7 @@
                 <select class="body" id="reveal" name="reveal">
                     <option disabled selected>Select a card to reveal</option>
                     {% for card in player_cards %}
-                        <option value="{{ card['id'] }}">{{ card['name'] }}</option>
+                        <option name="card" value="{{ card['id'] }}">{{ card['name'] }}</option>
                     {% endfor %}
                 </select>
                 <input type="hidden" name="backup card" value="{{ player_cards[0]['name'] }}">
