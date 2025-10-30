@@ -1,8 +1,5 @@
-## Video URL:
-https://youtu.be/tiBW9tZ_jRg    
-
 ## Documentation:
-Our project was done in the cs50 code space and is similar in structure to the finance pset. It uses python in app.py, jinja and html for the html pages, and sqlite3. 
+Our project was done in the cs50 code space, and it must be run in the cs50 enviroment. It uses python in app.py, jinja and html for the html pages, and sqlite3. 
 To use, unzip clue.zip, open a terminal, and (inside clue) type flask run to start using flask. This url should take you to the homepage of the site.
 
 ### Files and Folders 
